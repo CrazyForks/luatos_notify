@@ -14,23 +14,26 @@ local simMap = {
 -- 虚拟运营商无独立PLMN
 function sim.plmn()
     local IMSI = mobile.imsi()
-    local PLMN = IMSI and IMSI:sub(1, 5)
-    return PLMN
+    return IMSI and IMSI:sub(1, 5)
 end
 
 -- 运营商名称
 function sim.com()
+    local ICCID = mobile.iccid(id)
+    local   cfg = config.sim[ICCID]
+    if (cfg and cfg.com) then
+        return cfg.com
+    end
     local IMSI = mobile.imsi()
     local PLMN = IMSI and IMSI:sub(1, 5)
-    local  COM = PLMN and simMap.com[PLMN]
     return PLMN and simMap.com[PLMN]
 end
 
 -- 手机号
 function sim.num()
     local ICCID = mobile.iccid(id)
-    local   NUM = (config.sim[ICCID] and config.sim[ICCID].num) or mobile.number() or mobile.number(id)
-    return NUM
+    local   cfg = config.sim[ICCID]
+    return (cfg and cfg.num) or mobile.number(id) or mobile.number()
 end
 
 return sim
