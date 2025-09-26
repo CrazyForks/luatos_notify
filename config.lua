@@ -29,8 +29,8 @@ return {
                 TelegramBot = {
                     enable = 1,
                     url    = 'https://abcdefghijklmn.eu.org/telegram',
-                    token  = '8421296570:AAH9ZfkTvN2cXelej3Ms460n1ZMQZAxmASg',
-                    id     = 559928607
+                    token  = '000:AABBCC',
+                    id     = 000
                 },
                 huaiot = {
                     enable = 1,
@@ -103,3 +103,4 @@ return {
 
 
 --]]
+
