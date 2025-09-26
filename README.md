@@ -9,8 +9,9 @@
 - TelegramBot
 
 ### 实机调试
-- air780ep
-- air780epv
+- AIR780EP
+- AIR780EPV
+- AIR780EHM
 
 ### 使用
 - 修改config各项参数
